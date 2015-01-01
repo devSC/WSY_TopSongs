@@ -32,6 +32,7 @@
         AFHTTPRequestOperation *op = [self GET:@"http://ws.audioscrobbler.com/2.0/" parameters:@{@"method": @"geo.gettoptracks", @"country": region, @"api_key": @"d906be6d99e5b63a6b21bef23d8086fb", @"format": @"json"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"%@", responseObject);
             NSArray *artists = [[[responseObject[@"toptracks"][@"track"] rac_sequence] map:^id(NSDictionary *artist) {
+//                NSLog(@"%@", artists);
                 return [TopSong objectFromDictionary:artist];
             }] array];
             [subscriber sendNext:artists];

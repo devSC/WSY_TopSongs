@@ -7,6 +7,7 @@
 //
 
 #import "TopSongController.h"
+#import "TopSongRegionController.h"
 #import "TopSongViewModel.h"
 #import "TopSongArtist.h"
 #import "TopSong.h"
@@ -53,13 +54,38 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
     }];
-
+    
+    RACSignal *cancleSearchSignal = [self rac_signalForSelector:@selector(searchBarCancelButtonClicked:)];
+    RACSignal *searchSignal = [self rac_signalForSelector:@selector(searchBarSearchButtonClicked:)];
+    [[[searchSignal filter:^BOOL(RACTuple *args) {
+        @strongify(self);
+        UISearchBar *searchBar = args.first;
+        return [self.viewModel validateQuery:searchBar.text];
+    }] flattenMap:^RACStream *(RACTuple *args) {
+        @strongify(self);
+        UISearchBar *searchBar = args.first;
+        return [self.viewModel searchArtist:searchBar.text];
+    }] subscribeNext:^(id x) {
+        @strongify(self);
+        [self.searchDisplayController.searchResultsTableView reloadData];
+    }];
+    
+    RAC(self.viewModel, searchResults) = [cancleSearchSignal mapReplace:nil];
+    
+    RAC(self.viewModel, query) = [cancleSearchSignal mapReplace:nil];
 //[refreshSignal subscribeNext:^(id x) {
 //    @strongify(self);
 //    [self.tableView reloadData];
 //    [self.refreshControl endRefreshing];
 //}];
     
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"TopSongRegionController"]) {
+        TopSongRegionController *controller = segue.destinationViewController;
+        controller.viewModel = self.viewModel;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,9 +107,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+//    }
     
     if (self.tableView == tableView) {
         if (self.viewModel.selectedChart == 0) {

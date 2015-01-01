@@ -38,5 +38,17 @@
     return dataSignal;
 }
 
+- (RACSignal *)searchArtist: (NSString *)query
+{
+    self.query = query;
+    return [[[LastFMClient sharedClient] searchArtist:self.query] doNext:^(NSArray *artists) {
+        self.searchResults = artists;
+    }];
+    
+}
+- (BOOL)validateQuery: (NSString *)query
+{
+    return query.length>=3;
+}
 
 @end

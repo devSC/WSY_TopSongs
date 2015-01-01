@@ -17,6 +17,9 @@ typedef NS_ENUM(NSInteger, TopSongSegmentedSelectedChart) {
 @property (assign, nonatomic) TopSongSegmentedSelectedChart selectedChart;
 
 @property (strong, nonatomic) NSString *region;
+@property (strong, nonatomic) NSString *query;
+
+
 @property (strong, nonatomic) NSArray *songs;
 @property (strong, nonatomic) NSArray *artists;
 @property (strong, nonatomic) NSArray *searchResults;
@@ -24,4 +27,8 @@ typedef NS_ENUM(NSInteger, TopSongSegmentedSelectedChart) {
 @property (strong, nonatomic, getter=isSongsListDisplayed) RACSignal *songsListDisplayed;
 
 - (RACSignal *)fetchObjects;
+- (BOOL)validateQuery: (NSString *)query;
+- (RACSignal *)searchArtist: (NSString *)query;
+
+
 @end

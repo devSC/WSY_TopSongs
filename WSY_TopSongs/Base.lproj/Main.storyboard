@@ -21,7 +21,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Hpw-mL-UjJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Hpw-mL-UjJ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hpw-mL-UjJ" id="EIE-eJ-hsc">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -43,6 +43,11 @@
                                 <segment title="Top Artists"/>
                             </segments>
                         </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="78H-L9-h24">
+                            <connections>
+                                <segue destination="62v-h8-nFX" kind="show" identifier="TopSongRegionController" id="QWU-Dh-8wP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="searchControl" destination="Vgz-6M-rbP" id="JgW-3W-gjr"/>
@@ -62,6 +67,32 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="607" y="345"/>
+        </scene>
+        <!--Top Song Region Controller-->
+        <scene sceneID="xCr-4m-G5X">
+            <objects>
+                <tableViewController id="62v-h8-nFX" customClass="TopSongRegionController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nzo-l0-GOt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="gNb-jS-UCR">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gNb-jS-UCR" id="Wls-I0-TGN">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="62v-h8-nFX" id="XkB-oZ-VdQ"/>
+                            <outlet property="delegate" destination="62v-h8-nFX" id="Lan-aq-n2Q"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ghi-GT-hvJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1224" y="343"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yTc-wj-7Bt">
