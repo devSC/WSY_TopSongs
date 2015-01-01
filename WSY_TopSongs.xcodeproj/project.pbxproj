@@ -20,6 +20,7 @@
 		FEB5CA1D1A54E64B000D9494 /* TopSongArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB5CA1C1A54E64B000D9494 /* TopSongArtist.m */; };
 		FEB5CA201A54E6FC000D9494 /* TopSong.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB5CA1F1A54E6FC000D9494 /* TopSong.m */; };
 		FEB5CA231A54FB22000D9494 /* TopSongRegionController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB5CA221A54FB22000D9494 /* TopSongRegionController.m */; };
+		FEB5CA261A55015F000D9494 /* TopSongControllerDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB5CA251A55015F000D9494 /* TopSongControllerDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		FEB5CA1F1A54E6FC000D9494 /* TopSong.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopSong.m; sourceTree = "<group>"; };
 		FEB5CA211A54FB22000D9494 /* TopSongRegionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopSongRegionController.h; sourceTree = "<group>"; };
 		FEB5CA221A54FB22000D9494 /* TopSongRegionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopSongRegionController.m; sourceTree = "<group>"; };
+		FEB5CA241A55015F000D9494 /* TopSongControllerDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopSongControllerDataSource.h; sourceTree = "<group>"; };
+		FEB5CA251A55015F000D9494 /* TopSongControllerDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopSongControllerDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +189,8 @@
 			children = (
 				FEB5CA171A54E62B000D9494 /* TopSongController.h */,
 				FEB5CA181A54E62B000D9494 /* TopSongController.m */,
+				FEB5CA241A55015F000D9494 /* TopSongControllerDataSource.h */,
+				FEB5CA251A55015F000D9494 /* TopSongControllerDataSource.m */,
 				FEB5CA211A54FB22000D9494 /* TopSongRegionController.h */,
 				FEB5CA221A54FB22000D9494 /* TopSongRegionController.m */,
 			);
@@ -331,6 +336,7 @@
 				FEB5CA201A54E6FC000D9494 /* TopSong.m in Sources */,
 				FEB5C9E31A544A4B000D9494 /* main.m in Sources */,
 				FEB5CA1A1A54E62B000D9494 /* TopSongController.m in Sources */,
+				FEB5CA261A55015F000D9494 /* TopSongControllerDataSource.m in Sources */,
 				FEB5CA1D1A54E64B000D9494 /* TopSongArtist.m in Sources */,
 				FEB5CA121A54E5E8000D9494 /* LastFMClient.m in Sources */,
 				FEB5CA231A54FB22000D9494 /* TopSongRegionController.m in Sources */,
