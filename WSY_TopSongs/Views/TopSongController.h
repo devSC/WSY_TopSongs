@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TopSongController.h
 //  WSY_TopSongs
 //
 //  Created by 袁仕崇 on 14/12/31.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface TopSongController : UITableViewController
 
 
 @end
